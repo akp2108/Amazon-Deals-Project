@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
@@ -34,12 +35,17 @@ public class HomePage {
 	  driver.findElement(By.linkText("Gift Cards")).click();
 	  Thread.sleep(2000);
 	  System.out.println(driver.getTitle());
+	  
+	  Assert.assertTrue(driver.getTitle().equals("clickGiftCardLink"), "You landed in a wrong Page");
   }
   @Test
   public void clickSellLink() throws Exception {
 	  driver.findElement(By.linkText("Sell")).click();
 	  Thread.sleep(2000);
 	  System.out.println(driver.getTitle());
+	  
+	  Assert.assertTrue(driver.getTitle().equals("clickSellLink"));
+	  
   }
   @AfterTest
   public void afterTest() {
